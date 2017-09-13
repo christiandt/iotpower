@@ -19,7 +19,6 @@ class Lookback:
         return True
 
     def add_value(self, value):
-        current = 0
         last = int(math.floor(value))
         self.q.append(last)
         first = self.q.popleft()
@@ -28,12 +27,3 @@ class Lookback:
             if self._is_zeroqueue(self.q):
                 requests.get("https://webhook")
                 print "sent message"
-        current += 1
-
-
-
-
-
-
-
-

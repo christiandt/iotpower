@@ -1,6 +1,6 @@
 from pyHS100 import SmartPlug, SmartPlugException
-import time, datetime
 from lookback import Lookback
+import time
 
 
 plug = SmartPlug("10.0.0.44")
@@ -10,9 +10,7 @@ look = Lookback(4)
 
 while True:
     try:
-        stamp = str(datetime.datetime.now())
         power = float(plug.get_emeter_realtime()["power"])
-
         look.add_value(power)
         time.sleep(interval)
 
